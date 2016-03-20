@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 const motivations = require('motivations');
+const pickOne = require('pick-one');
 
 app.get('/', function(request, response) {
 	
@@ -16,8 +17,7 @@ app.get('/hi', function(request, response) {
 
 app.get('/motivations', function(request, response) {
 
-	var rand = Math.random() * (20 - 0) + 0;
-        response.send(motivations[rand]);
+        response.send(pickOne(motivations));
 });
 
 
